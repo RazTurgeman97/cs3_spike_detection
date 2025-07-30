@@ -1,0 +1,7 @@
+# Low sensitivity configuration - only detects major obstacles
+# Ideal for: Rough terrain navigation, filtering out minor surface variations
+# Trade-off: May miss smaller but important obstacles
+spike_detector_node:
+  ros__parameters:
+    z_drop_threshold: 0.15  # 15cm drops - only major height changes
+    sliding_window_size: 10  # Large window for very stable detection, reduces noise

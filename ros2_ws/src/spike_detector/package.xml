@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>spike_detector</name>
+  <version>0.0.0</version>
+  <description>ROS 2 package for detecting height spikes in trajectory data from handheld mobile scanners</description>
+  <maintainer email="RazTurgeman97@gmail.com">raz</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Core ROS 2 dependencies -->
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>spike_msgs</depend>
+
+  <!-- Analysis dependencies -->
+  <exec_depend>python3-matplotlib</exec_depend>
+  <exec_depend>python3-pandas</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+
+  <!-- Launch system dependencies for running launch files -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

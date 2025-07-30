@@ -1,0 +1,7 @@
+# Medium sensitivity configuration (default) - balanced detection
+# Ideal for: General purpose obstacle detection, indoor navigation
+# Trade-off: Good balance between detection accuracy and false positive rate
+spike_detector_node:
+  ros__parameters:
+    z_drop_threshold: 0.05  # 5cm drops - moderate sensitivity
+    sliding_window_size: 7   # Medium window for good balance of stability and responsiveness

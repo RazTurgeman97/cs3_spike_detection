@@ -1,0 +1,7 @@
+# Default spike detection parameters
+# This configuration provides balanced detection suitable for most indoor environments
+# For different sensitivity levels, use high_sensitivity.yaml, medium_sensitivity.yaml or low_sensitivity.yaml
+spike_detector_node:
+  ros__parameters:
+    z_drop_threshold: 0.1
+    sliding_window_size: 5

@@ -1,0 +1,43 @@
+# Ignore ROS2 build artifacts inside ros2_ws/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+ros2_ws/.colcon/
+
+# Ignore CMake and compiled files
+ros2_ws/CMakeCache.txt
+ros2_ws/CMakeFiles/
+ros2_ws/cmake_install.cmake
+ros2_ws/Makefile
+
+# Ignore Python cache
+ros2_ws/**/__pycache__/
+ros2_ws/**/*.pyc
+ros2_ws/**/*.pyo
+
+# Ignore VSCode settings (optional)
+.vscode/
+
+# Ignore ROS2-generated files
+ros2_ws/**/*.log
+ros2_ws/*.db3
+
+# Ignore compiled binaries and libraries
+ros2_ws/**/*.so
+ros2_ws/**/*.o
+ros2_ws/**/*.a
+ros2_ws/**/*.exe
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ROS bags and results
+*.mcap
+*.db3
+*_spike_results*/
+
+# Temporary files
+*.tmp
+*.bak
+*.log

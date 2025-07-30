@@ -1,0 +1,7 @@
+# High sensitivity configuration - detects small obstacles like cables, small debris
+# Ideal for: Detailed obstacle mapping, quality control applications
+# Trade-off: May produce false positives from sensor noise
+spike_detector_node:
+  ros__parameters:
+    z_drop_threshold: 0.02  # 2cm drops - very sensitive to small height changes
+    sliding_window_size: 3   # Small window for quick response to changes
