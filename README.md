@@ -10,7 +10,7 @@ ros2 launch spike_detector spike_detector_with_bag.launch.py
 
 ### Sensitivity Levels
 
-- **Default**: Balanced detection (5cm threshold, moderate smoothing) - DEFAULT
+- **Default**: Balanced detection (10cm threshold, quick-moderate smoothing) - DEFAULT
 - **High**: Detects small obstacles (2cm threshold, quick response)
 - **Medium**: Balanced detection (5cm threshold, moderate smoothing)
 - **Low**: Only major obstacles (15cm threshold, high stability)
