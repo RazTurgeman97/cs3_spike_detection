@@ -135,7 +135,6 @@ def generate_launch_description():
     
     # We need to resolve the sensitivity value early to determine test number
     # This is a limitation of Launch - we'll use a default and let the user override
-    sensitivity = 'default'  # This will be overridden by launch args
     
     # Find next test number for default sensitivity (will be recalculated at runtime)
     next_test_num = find_next_test_number(results_dir, sensitivity)
