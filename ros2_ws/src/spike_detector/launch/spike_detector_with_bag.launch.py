@@ -136,8 +136,9 @@ def generate_launch_description():
     # We need to resolve the sensitivity value early to determine test number
     # This is a limitation of Launch - we'll use a default and let the user override
     
-    # Find next test number for default sensitivity (will be recalculated at runtime)
-    next_test_num = find_next_test_number(results_dir, sensitivity)
+    # Find next test number for default sensitivity (limitation: can't resolve LaunchConfiguration here)
+    default_sensitivity = 'default'  # Use default for test numbering, actual sensitivity resolved at runtime
+    next_test_num = find_next_test_number(results_dir, default_sensitivity)
     
     # Determine config file based on sensitivity parameter
     config_file = PathJoinSubstitution([
@@ -165,12 +166,18 @@ def generate_launch_description():
             NotEqualsSubstitution(bag_path, '')
         )
     )
+
+    sensitivity_str = sensitivity
+    # Create output filename with automatic test numbering (using PathJoinSubstitution for sensitivity)
+    output_filename = PathJoinSubstitution([
+        [f"test{next_test_num}_", sensitivity, "_sensitivity_spike_results_" + timestamp]
+    ])
+    output_path = PathJoinSubstitution([
+        results_dir, [sensitivity, '_sensitivity_results'], output_filename
+    ])
     
-    # Create output filename with automatic test numbering
-    # This creates files like: test1_default_spike_results_30_07_2025_21_15.mcap
-    output_filename = f"test{next_test_num}_{sensitivity}_spike_results_{timestamp}"
-    output_path = os.path.join(results_dir, f'{sensitivity}_sensitivity_results', output_filename)
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    # Create directory structure (using default sensitivity for now)
+    os.makedirs(os.path.join(results_dir, f'{default_sensitivity}_sensitivity_results'), exist_ok=True)
     # Spike results recorder with automatic test numbering
     spike_recorder = ExecuteProcess(
         cmd=['ros2', 'bag', 'record', '/spike', '-o', output_path],
@@ -214,7 +221,7 @@ def generate_launch_description():
             target_action=bag_player,
             on_exit=[
                 ExecuteProcess(
-                    cmd=['echo', f'Bag playback finished. Results saved as: {output_filename}.mcap (Test #{next_test_num}). Shutting down...'],
+                    cmd=['echo', f'Bag playback finished. Results saved (Test #{next_test_num}). Shutting down...'],
                     output='screen'
                 )
             ]
