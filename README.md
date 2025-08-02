@@ -56,7 +56,7 @@ sudo apt install python3-matplotlib python3-pandas python3-numpy
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ros2-spike-detection.git
+git clone https://github.com/RazTurgeman97/cs3_spike_detection.git
 cd ros2-spike-detection
 
 # Build the packages
